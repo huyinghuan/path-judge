@@ -1,6 +1,6 @@
 {
   "name": "path-judge",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "judge the path is absolute path or relative path",
   "author": "huyinghuan",
   "homepage": "https://github.com/huyinghuan/path-judge",
