@@ -1,6 +1,6 @@
 {
   "name": "path-judge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "judge the path is absolute path or relative path",
   "author": "huyinghuan",
   "homepage": "https://github.com/huyinghuan/path-judge",
@@ -27,6 +27,7 @@
   "devDependencies": {},
   "dependencies": {},
   "scripts": {
+    "test": "coffee --no-header -o ./ -c src/",
     "prepublish": "coffee --no-header -o ./ -c src/"
   }
 }

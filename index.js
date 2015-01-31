@@ -1,5 +1,5 @@
 (function() {
-  var isAbsolute, isWinPlatform, _os, _path;
+  var getFilePath, isAbsolute, isWinPlatform, _os, _path;
 
   _path = require('path');
 
@@ -23,6 +23,30 @@
 
   exports.isRelative = function(path) {
     return !isAbsolute(path);
+  };
+
+  getFilePath = function(path, base) {
+    var flag;
+    if (base == null) {
+      base = "";
+    }
+    flag = isAbsolute(path);
+    if (flag) {
+      return path;
+    }
+    return _path.resolve(base, path);
+  };
+
+  exports.getFilePathBaseOnProcess = function(path) {
+    return getFilePath(path, process.cwd());
+  };
+
+  exports.getFilePathBaseOnRequire = function(path) {
+    var requireParentDirctor;
+    if (module.parent) {
+      requireParentDirctor = _path.dirname(module.parent.filename);
+      return getFilePath(path, requireParentDirctor);
+    }
   };
 
 }).call(this);
